@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Un lienzo para animar</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+
+   var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var posicion = 0;
+    var tamaño1 = 0;
+    var tamaño2 = 400;
+    setInterval(function () {
+        ctx.clearRect(0, 0, 400, 400);
+        ctx.fillRect(posicion,0 , tamaño1, tamaño2);
+
+        posicion++;
+        tamaño1++;
+        tamaño2--;
+
+        if (posicion > 400){
+            posicion = 0;
+            tamaño1 = 0;
+            tamaño2 = 400;
+        }
+
+        document.getElementById("canvas").onclick = function(){
+        var color = ["#FF0000","#800000","#FFFF00","#0000FF","#00FF00"];
+        var numeroAzar = Math.floor(Math.random()*color.length-1);
+        ctx.fillStyle = color[numeroAzar];
+         $("#parrafo").text("El largo de la figura es:"+" "+ tamaño1 +" "+"y el alto es:"+" "+ tamaño2);
+        }
+
+    }, 30);
+
+
+
+   </script>
+<p id="parrafo"></p>
+
+</body>
+</html>
