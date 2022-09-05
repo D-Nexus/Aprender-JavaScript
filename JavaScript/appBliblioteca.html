@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Biblioteca</title>
+</head>
+
+<body>
+  <h1><strong>Biblioteca/Buscador</strong></h1>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+        $("#boton").click(function(){
+    		$("#parrafo").append("<br>"+" "+ prompt("Nombre"));
+	});
+});
+</script>
+
+<p id="parrafo">
+	Biblioteca.<br>
+	<input type="button" id="boton" value="Añadir">
+	<br>
+	Lista:
+</p>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

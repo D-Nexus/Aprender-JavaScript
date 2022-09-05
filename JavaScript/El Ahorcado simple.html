@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>El Ahorcado</title>
+
+
+<body>
+  <h1>El Ahorcado</h1>
+  <script>
+    var palabras = ["canto", "bosque", "internet", "silla", "profesor", "recy", "tonto"];
+    var palabraincognita = palabras[Math.floor(Math.random() * palabras.length)];
+    var letrasincognitas = [];
+    for (var i = 0; i < palabraincognita.length; i++) {
+      letrasincognitas[i] = "_";
+    }
+    var numerodeletras = palabraincognita.length;
+    while (numerodeletras > 0) {
+      alert(letrasincognitas.join(" "));
+
+
+      var letraingresada = prompt("Adivina una letra o presiona Cancelar para salir del juego.");
+      if (letraingresada === null) {
+        break;
+      } else if (letraingresada.length !== 1) {
+        alert("Por favor ingresa solo una letra.");
+
+      } else {
+        for (var j = 0; j < palabraincognita.length; j++) {
+          if (palabraincognita[j] === letraingresada) {
+            letrasincognitas[j] = letraingresada;
+            numerodeletras--;
+          }
+        }
+
+      }
+    }
+    alert(letrasincognitas.join(" "));
+    alert("¡Bien Hecho! la respuesta fue " + palabraincognita);
+  </script>
+
+</body>
+</head>
+
+</html>
