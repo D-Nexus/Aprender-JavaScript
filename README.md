@@ -1,2 +1,2 @@
-# Material con ejercicios en JavaScript - HTML
+# Ejercicios en JavaScript - HTML
 # Juegos simples JavaScript - HTML
