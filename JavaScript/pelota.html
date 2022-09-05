@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>pelota rebotando</title>
+</head>
+
+<body>
+
+  <<canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+      var pelota = function() {
+        this.x = 200;
+        this.y = 200;
+        this.xVelocidad = -4;
+        this.yVelocidad = 6;
+      };
+      var circulo = function(x, y, radio, llenarCirculo) {
+        ctx.beginPath();
+        ctx.arc(x, y, radio, 0, Math.PI * 2, false);
+        if (llenarCirculo) {
+          ctx.fill();
+        } else {
+          ctx.stroke();
+        }
+      };
+      pelota.prototype.dibujo = function() {
+        circulo(this.x, this.y, 10, true);
+      };
+      pelota.prototype.mover = function() {
+        this.x += this.xVelocidad;
+        this.y += this.yVelocidad;
+      };
+      pelota.prototype.tocaBorde = function() {
+        if (this.x < 0 || this.x > 400) {
+          this.xVelocidad = -this.xVelocidad;
+        }
+        if (this.y < 0 || this.y > 400) {
+          this.yVelocidad = -this.yVelocidad;
+        }
+      };
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      var pelota = new pelota();
+
+      setInterval(function() {
+        ctx.clearRect(0, 0, 400, 400);
+
+        pelota.dibujo();
+        pelota.mover();
+        pelota.tocaBorde();
+
+        ctx.strokeRect(0, 0, 400, 400);
+
+      }, 30);
+    </script>
+</body>
+
+</html>
